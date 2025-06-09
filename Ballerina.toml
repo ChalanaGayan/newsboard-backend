@@ -1,0 +1,18 @@
+[package]
+org = "chalanagayan"
+name = "newsboard_backend"
+version = "0.1.0"
+distribution = "2201.8.6"
+
+[build-options]
+observabilityIncluded = true
+
+[[dependency]]
+org = "ballerina"
+name = "sql"
+version = "1.9.0"
+
+[[dependency]]
+org = "ballerina"
+name = "postgresql"
+version = "1.9.0"
