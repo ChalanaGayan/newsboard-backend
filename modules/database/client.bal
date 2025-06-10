@@ -1,12 +1,13 @@
-import ballerina/jdbc;
+import ballerinax/postgresql;
 
-jdbc:Client|sql:Error dbClient = new (
-   url =  "jdbc:h2:~/path/to/database",
-   user = "root", password = "root",
-   options = {
-       datasourceName: "org.h2.jdbcx.JdbcDataSource"
-   },
-   connectionPool = {
-       maxOpenConnections: 5
-   }
+
+configurable DBConfig dbConfig = ?;
+configurable string encryptionKey = ?;
+
+public final postgresql:Client dbClient = check new(
+    host = dbConfig.host,
+    username = dbConfig.userName,
+    password = dbConfig.password,
+    port = dbConfig.port,
+    database = dbConfig.database
 );
